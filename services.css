@@ -1,0 +1,170 @@
+/* === Global Styles === */
+body {
+  font-family: 'Cambria', serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f0fa;
+  color: #222;
+  overflow-x: hidden;
+}
+
+/* === Hero Section === */
+.hero {
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff6a00, #ff4081);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #fff;
+  position: relative;
+}
+
+@keyframes gradientBG {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+.hero-overlay h1 {
+  font-size: 50px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+  animation: floatText 4s ease-in-out infinite;
+}
+
+.hero-overlay p {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+@keyframes floatText {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* === Navigation === */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  background: rgba(255,255,255,0.9);
+  padding: 15px 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #6a11cb;
+  margin: 0 20px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #ff4081;
+  transform: translateY(-3px);
+}
+
+/* === Services Section === */
+.services-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* Service Cards */
+.service-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.4s, box-shadow 0.4s;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.service-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.service-card h2 {
+  color: #6a11cb;
+  margin-bottom: 15px;
+}
+
+.service-card p, .service-card ul {
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.gradient-btn {
+  background: linear-gradient(45deg, #6a11cb, #2575fc, #ff4081);
+  background-size: 300% 300%;
+  animation: gradientMove 5s ease infinite;
+}
+
+.gradient-btn:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+@keyframes gradientMove {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 16px;
+}
+
+footer a {
+  color: #6a11cb;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #ff4081;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .hero-overlay h1 { font-size: 35px; }
+  .hero-overlay p { font-size: 16px; }
+  .services-section { gap: 20px; }
+  .service-card { padding: 25px 20px; }
+  .btn { padding: 12px 20px; font-size: 16px; }
+}
